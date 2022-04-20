@@ -45,7 +45,17 @@ void Meniu::afisareMeniu(){
                 this->inchiriere();//inchiriere
             }
             catch (int err) {
-                std::cout << "Puteti imprumuta o singura bicicleta. Returnati intai bicicleta!";
+                if (err == 0) {
+                    std::cout << "Puteti imprumuta o singura bicicleta. Returnati intai bicicleta!\n";
+                    this->afisareMeniu();
+                }
+                else if(err == -2){
+                    std::cout << "Alegeti un nr valid de bicicleta!\n";
+                    this->afisareMeniu();
+                }
+            }
+            catch (std::bad_cast &err2){
+                std::cout << "Alegeti un nr valid de bicicleta!\n";
                 this->afisareMeniu();
             }
             break;
