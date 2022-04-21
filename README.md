@@ -2,7 +2,7 @@
 # 2WHEELS RENTAL SYSTEM (oop-second-project)
 
 <p align="center"><img src="https://media1.giphy.com/media/1dQ8t83MTSq2q9PkH0/source.gif" width="200" height="200" /> 
-<img src="https://i.gifer.com/2DDf.gif" width="400" height="200" />
+    <img src="https://c.tenor.com/C5TeczshWB0AAAAC/maria-tran-bike.gif" width="200" height="200" />
 </p>
 
 # **Short presentation**
