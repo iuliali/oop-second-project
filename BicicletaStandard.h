@@ -15,7 +15,7 @@ public:
 
     void afisare();
     friend std::istream& operator>>(std::istream& i, BicicletaStandard& bike);
-
+    void incarca();
     void setID(int i);
 
     BicicletaStandard( BicicletaStandard &bike);

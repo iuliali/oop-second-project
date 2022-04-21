@@ -44,7 +44,7 @@ void BicicletaStandard::setID(int i) {
 
 
 std::istream &operator>>(std::istream &i, BicicletaStandard &bike) {
-    std::cout<<"Introduceti modelul: ";
+    std::cout<<"Introduceti modelul(fara spatii!): ";
     std::string model;
     i>>model;
     bike.setModelVehicul(model);
@@ -60,6 +60,10 @@ std::istream &operator>>(std::istream &i, BicicletaStandard &bike) {
 BicicletaStandard::BicicletaStandard( BicicletaStandard &bike) : VehiculDouaRoti(bike.getIdVehicul(), bike.getModelVehicul()) {
 //    this->setModelVehicul(bike.getModelVehicul());
 //    this->setID(bike.getIdVehicul());
+}
+
+void BicicletaStandard::incarca() {
+    //nothing
 }
 
 

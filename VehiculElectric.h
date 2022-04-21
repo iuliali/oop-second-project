@@ -16,10 +16,13 @@ public:
     //
     void setNivelBaterie(int nivel);
 
-
+    void incarca();
     int getNivelBaterie();
     static double getCostSuplimentarPeMinut();
     VehiculElectric(VehiculElectric &);
+
+    static void setCostSuplimentarPeMinut(double);
+
 };
 
 

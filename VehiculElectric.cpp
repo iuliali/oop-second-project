@@ -35,3 +35,11 @@ VehiculElectric::VehiculElectric (VehiculElectric &eVehicul) : VehiculDouaRoti(e
     this->nivelBaterie = eVehicul.getNivelBaterie();
 }
 
+void VehiculElectric::incarca() {
+    this->setNivelBaterie(100);
+}
+
+void VehiculElectric::setCostSuplimentarPeMinut(double cost) {
+    costSuplimentarPeMinut = cost;
+}
+

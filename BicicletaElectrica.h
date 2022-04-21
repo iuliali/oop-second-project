@@ -11,8 +11,10 @@ public:
     BicicletaElectrica(int idV);
     BicicletaElectrica(BicicletaElectrica& bike);
     void afisare();
+    //friend std::istream &operator>>(std::istream &i, BicicletaElectrica &bike) ;
+    void incarca();
 
-    //int getNivelBaterie();
+        //int getNivelBaterie();
 };
 
 

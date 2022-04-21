@@ -20,11 +20,12 @@ public:
     virtual std::string getModelVehicul();
     virtual void setModelVehicul(std::string model);
     friend std::ostream& operator<<(std::ostream& os,   VehiculDouaRoti& vehicul);
-    void setRastelCurent(Rastel* rastel);
-    Rastel* getRastelCurent();
     virtual void afisare();
     static double getPretPerOra();
     void setID(int);
+    void virtual incarca() = 0;
+
+    static void setPretPerOra(double pret);
 };
 
 

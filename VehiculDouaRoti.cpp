@@ -2,16 +2,15 @@
 #include <iostream>
 
 double VehiculDouaRoti::pretPeOra = 7.5;
+
 VehiculDouaRoti::VehiculDouaRoti(int idV, std::string model) {
     this->modelVehicul = model;
     this->idVehicul = idV;
-    //this->rastelCurent = nullptr;
     //std::cout<<"Constructor Vehicul 2 roti \n";
 }
 
 VehiculDouaRoti::VehiculDouaRoti(int idV) {
     this->idVehicul = idV;
-    //this->rastelCurent = nullptr;
 
     //std::cout<<"Constructor Vehicul 2 roti \n";
 }
@@ -40,13 +39,6 @@ std::ostream& operator<<(std::ostream &o, VehiculDouaRoti& vehicul) {
     return o;
 }
 
-void VehiculDouaRoti::setRastelCurent(Rastel* rastel) {
-    //this->rastelCurent = rastel;
-}
-
-Rastel* VehiculDouaRoti::getRastelCurent() {
-    //return this->rastelCurent;
-}
 
 void VehiculDouaRoti::afisare() {
     std::cout<<this->getModelVehicul()<<" ";
@@ -60,5 +52,11 @@ double VehiculDouaRoti::getPretPerOra() {
 void VehiculDouaRoti::setID(int id) {
     this->idVehicul= id;
 }
+
+void VehiculDouaRoti::setPretPerOra(double pret) {
+    pretPeOra = pret;
+}
+
+
 
 

@@ -40,8 +40,11 @@ std::ostream &operator<<(std::ostream &o,  TwoWheelsRentalSystem sistem) {
 //}
 
 TwoWheelsRentalSystem::~TwoWheelsRentalSystem() {
-    //bdRastele.clear();
-    //tb vazut daca se sterge totul;
+
+    for (int i = 0 ; i < bdRastele.size(); i ++) {
+        delete bdRastele[i];
+    }
+    bdRastele.clear();
     //std::cout << "Destructor sistem \n";
 }
 
@@ -52,23 +55,23 @@ void TwoWheelsRentalSystem::afisareLocatii() {
     }
 }
 
-Rastel& TwoWheelsRentalSystem::getRastel(int i) {
-    return *this->bdRastele[i];
+Rastel* TwoWheelsRentalSystem::getRastel(int i) {
+    return this->bdRastele[i];
 }
 void TwoWheelsRentalSystem::afisareRastel(int k) {
     //std::cout << *bdRastele[k-1];
     bdRastele[k]->afisareBiciclete();
 }
 
-BicicletaStandard& TwoWheelsRentalSystem::imprumutaBicicleta(Rastel& prastel, int i) {
-    prastel.setLocuriLibere(prastel.getLocuriLibere()+1);
-    this->bicicletaInchiriata = &prastel.getBicicleta(i);
-    std::cout << *this->bicicletaInchiriata;
-    prastel.scoateBicicleta(i);
+void TwoWheelsRentalSystem::imprumutaBicicleta(Rastel* prastel, int i) {
+    prastel->setLocuriLibere(prastel->getLocuriLibere()+1);
+    this->bicicletaInchiriata = dynamic_cast<BicicletaStandard *>(prastel->getBicicleta(i));
+    //std::cout << *this->bicicletaInchiriata;
+    prastel->scoateBicicleta(i);
     bicicletaImprumutata = true;
     //prastel.afisareBiciclete();
     //this->bicicletaInchiriata.afisare();
-    return  *this->bicicletaInchiriata;
+
 }
 
 void TwoWheelsRentalSystem::afisareLocuriLibere() {
@@ -84,7 +87,6 @@ void TwoWheelsRentalSystem::returneazaBicicleta(int i) {
         std::cout << "\n";
         this->bdRastele[i]->afisareBiciclete();
         std::cout << "\n";
-        this->bdRastele[i]->setLocuriLibere(this->bdRastele[i]->getLocuriLibere() - 1);
         this->bdRastele[i]->adaugaBicicleta(this->bicicletaInchiriata);
         std::cout << "\n";
         this->bdRastele[i]->afisareBiciclete();
@@ -107,6 +109,12 @@ void TwoWheelsRentalSystem::afiseazaBicicletaCurenta() {
     std::cout << "\n";
     std::cout << *bicicletaInchiriata;
     std::cout << "\n";
+}
+
+void TwoWheelsRentalSystem::incarcaBicicleteRastel(int i) {
+    //std::cout << *bdRastele[i];
+    this->getRastel(i)->incarcaBiciclete();
+
 }
 
 

@@ -23,29 +23,32 @@ class TwoWheelsRentalSystem {
                                             "Parcul Kiseleff"
     };
     std::vector<Rastel*> bdRastele;
-    BicicletaStandard* bicicletaInchiriata;
+    VehiculDouaRoti* bicicletaInchiriata;
     bool bicicletaImprumutata;
 public:
     TwoWheelsRentalSystem(BicicletaStandard* bicicletaInchiriata);
     ~TwoWheelsRentalSystem();
 
-
-    //static std::vector<std::string>& getListaLocatii();
     friend std::ostream& operator<<(std::ostream &o, TwoWheelsRentalSystem sistem);
+
     void afisareLocatii();
+
     void afisareRastel(int k);
-    BicicletaStandard& imprumutaBicicleta(Rastel& prastel, int i);
 
     void afisareLocuriLibere();
 
     void returneazaBicicleta(int i);
 
-    Rastel &getRastel(int i);
-
+    Rastel* getRastel(int i);
 
     bool areBicicletaImprumutata();
 
     void afiseazaBicicletaCurenta();
+
+    void imprumutaBicicleta(Rastel *prastel, int i);
+
+    void incarcaBicicleteRastel(int i);
+
 };
 
 

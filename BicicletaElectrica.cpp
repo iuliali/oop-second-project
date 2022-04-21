@@ -23,4 +23,23 @@ BicicletaElectrica::BicicletaElectrica(BicicletaElectrica &bike) : VehiculDouaRo
 
 }
 
+void BicicletaElectrica::incarca() {
+    VehiculElectric::incarca();
+}
+
+//std::istream &operator>>(std::istream &i, BicicletaElectrica &bike) {
+
+//    std::cout<<"Introduceti modelul de bicicleta electrica: ";
+//    std::string model;
+//    i>>model;
+//    bike.setModelVehicul(model);
+//    std::cout<<"Introduceti ID: ";
+//    int id;
+//    i>>id;
+//    bike.setID(id);
+//
+//    i.get();
+//    return i;
+//}
+
 

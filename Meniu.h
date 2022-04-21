@@ -14,12 +14,8 @@ public:
     void operator = (const Meniu&) = delete;
     static Meniu* getInstance();
     void initializareSistem(TwoWheelsRentalSystem* sistem);
-    //void bunVenit();
     void afisareMeniu();
-//    void afiseazaVehicule(const std::string& raspuns);
-//    void alegeBicicleta(Rastel& pRastel);
-//
-//    void returneazaBicicleta(BicicletaStandard &pbicicletaDeReturnat);
+
     void inchiriere();
 
     void returnare();
@@ -29,6 +25,8 @@ public:
     static void tarifeBiciclete();
 
     void adaugareBiciclete(int i);
+
+    void modificaTarife();
 };
 
 
