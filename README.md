@@ -1,4 +1,3 @@
-
 # 2WHEELS RENTAL SYSTEM (oop-second-project)
 
 <p align="center"><img src="https://media1.giphy.com/media/1dQ8t83MTSq2q9PkH0/source.gif" width="200" height="200" /> 
@@ -35,6 +34,20 @@ The program is in Romanian ! (sorry)
 <p>Take your favourite bike from any rack you want, have fun and then return it in any rack.</p>
 <p>If you are in the main menu (with the 4 options displayed), you can act as a rental system worker and access the secret menu.</p>
 
+```
+Try this path:
+1.Inchiriaza bicicleta 
+-> choose a rack and then choose a bike that's available in that rack
+->2. Returneaza bicicleta
+-> see how the bike was added in chosen rack
+-> press 5(secret menu)
+-> choose a location (rack) and add new bikes in a rack 
+-> change prices :))
+-> charge all the bikes in a rack (or more)
+->(Every time you can insert an inexitent number to check how many exceptions I've caught) 
+-GOOD JOB !
+
+``` 
 
 ```
 5 (invisible - secret menu)
@@ -56,7 +69,16 @@ The program is in Romanian ! (sorry)
 </ul>
 </li>
 </ul>
-<p> </p>
+<p>I've build the whole project learning and practicing to work with pointers. 
+Rastel class has a vector with pointers of type VehiculDouaRoti, containing pointers to objects of types derived from VehiculDouaRoti (upcasting).
+I've build custom constructors for derived classes and for destructor I've build a virtual destructor for the base class.
+I've used static data members for prices in vehicle classes and also for building the Menu, which I've tried to build as a singleton. 
+While running  and testing the program, I've found nice opportunities to use try...catch, to throw exceptions in functions and see  how it works.
+</p>
+
+<p>When you rent a bike a data member of system class which is of type VehiculDouaRoti*
+retains a pointer to an actual bike (BicicletaStandard/ BicicletaElectrica) showing again the upcast concept.
+I've also used dynamic_cast in the copy constructor of Rastel to check what type is every bike that should be copied.</p>
 
 
 # **Written in**
