@@ -19,7 +19,9 @@ public:
 
     int getNivelBaterie();
     static double getCostSuplimentarPeMinut();
+    VehiculElectric(VehiculElectric &);
 };
+
 
 
 #endif //VEHICULELECTRIC_H

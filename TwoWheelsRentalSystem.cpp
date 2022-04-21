@@ -11,8 +11,8 @@
 #endif
 
 
-TwoWheelsRentalSystem::TwoWheelsRentalSystem(BicicletaStandard bicicletaInchiriata)
-        : bicicletaInchiriata(bicicletaInchiriata) {
+TwoWheelsRentalSystem::TwoWheelsRentalSystem(BicicletaStandard* bicicletaInchiriata)
+        : bicicletaInchiriata( bicicletaInchiriata) {
     //std::cout<<TwoWheelsRentalSystem::listaLocatii.size()<<" locatii:\n";
 
     for(int i = 0; i < TwoWheelsRentalSystem::listaLocatii.size(); i++) {
@@ -22,8 +22,8 @@ TwoWheelsRentalSystem::TwoWheelsRentalSystem(BicicletaStandard bicicletaInchiria
         //std::cout << *pRastelNou;
 
     }
-    BicicletaStandard bike(99);
-    this->bicicletaInchiriata = bike;
+    bicicletaImprumutata = false;
+
 }
 
 std::ostream &operator<<(std::ostream &o,  TwoWheelsRentalSystem sistem) {
@@ -62,11 +62,13 @@ void TwoWheelsRentalSystem::afisareRastel(int k) {
 
 BicicletaStandard& TwoWheelsRentalSystem::imprumutaBicicleta(Rastel& prastel, int i) {
     prastel.setLocuriLibere(prastel.getLocuriLibere()+1);
-    this->bicicletaInchiriata = prastel.getBicicleta(i);
+    this->bicicletaInchiriata = &prastel.getBicicleta(i);
+    std::cout << *this->bicicletaInchiriata;
     prastel.scoateBicicleta(i);
+    bicicletaImprumutata = true;
     //prastel.afisareBiciclete();
     //this->bicicletaInchiriata.afisare();
-    return  this->bicicletaInchiriata;
+    return  *this->bicicletaInchiriata;
 }
 
 void TwoWheelsRentalSystem::afisareLocuriLibere() {
@@ -77,22 +79,34 @@ void TwoWheelsRentalSystem::afisareLocuriLibere() {
 
 void TwoWheelsRentalSystem::returneazaBicicleta(int i) {
     if(this->bdRastele[i]->getLocuriLibere() == 0){
-        //
-        std::cout<<"nu sunt locuri libere";
+        std::cout<<"Nu sunt locuri libere\n";
+    } else {
+        std::cout << "\n";
+        this->bdRastele[i]->afisareBiciclete();
+        std::cout << "\n";
+        this->bdRastele[i]->setLocuriLibere(this->bdRastele[i]->getLocuriLibere() - 1);
+        this->bdRastele[i]->adaugaBicicleta(this->bicicletaInchiriata);
+        std::cout << "\n";
+        this->bdRastele[i]->afisareBiciclete();
+        std::cout << "\n";
+        //this->afisareRastel(i);
+        std::cout << "Ai returnat cu succes bicicleta ";
+        bicicletaInchiriata->afisare();
+        std::cout << " in rastelul din " << bdRastele[i]->getLocatie() << "\n";
+        this->bicicletaInchiriata = new BicicletaStandard(0);
+        bicicletaImprumutata = false;
     }
-    this->bdRastele[i]->setLocuriLibere(this->bdRastele[i]->getLocuriLibere()-1);
-    this->bdRastele[i]->adaugaBicicleta(this->bicicletaInchiriata);
-    //this->afisareRastel(i);
-    std::cout << "Ai returnat cu succes bicicleta ";
-    bicicletaInchiriata.afisare();
-    std::cout<<" in rastelul din " << bdRastele[i]->getLocatie() <<"\n" ;
 
 }
 
 bool TwoWheelsRentalSystem::areBicicletaImprumutata() {
-    if(bicicletaInchiriata.getIdVehicul() == 0)
-        return false;
-    return true;
+    return bicicletaImprumutata;
+}
+
+void TwoWheelsRentalSystem::afiseazaBicicletaCurenta() {
+    std::cout << "\n";
+    std::cout << *bicicletaInchiriata;
+    std::cout << "\n";
 }
 
 

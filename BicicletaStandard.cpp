@@ -32,9 +32,7 @@ void BicicletaStandard::generareModel() {
     this->setModelVehicul(random);
 }
 
-BicicletaStandard::~BicicletaStandard() {
-    //std::cout<<"Destructor BiciStd "<<this->getModelVehicul()<<"\n";
-}
+
 
 void BicicletaStandard::afisare() {
     std::cout <<"Bicicleta Standard "<< this->getModelVehicul() <<" - ID:"<< this->getIdVehicul();
@@ -59,7 +57,10 @@ std::istream &operator>>(std::istream &i, BicicletaStandard &bike) {
     return i;
 }
 
-
+BicicletaStandard::BicicletaStandard( BicicletaStandard &bike) : VehiculDouaRoti(bike.getIdVehicul(), bike.getModelVehicul()) {
+//    this->setModelVehicul(bike.getModelVehicul());
+//    this->setID(bike.getIdVehicul());
+}
 
 
 

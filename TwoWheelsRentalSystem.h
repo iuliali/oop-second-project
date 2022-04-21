@@ -9,21 +9,24 @@
 
 
 class TwoWheelsRentalSystem {
+
+
     std::vector<std::string> listaLocatii= {"Parcul Tineretului",
-                                           "Parcul Cismigiu",
-                                           "Calea Victoriei1",
-                                           "Calea Victoriei2",
-                                           "Parcul Bazilescu",
-                                           "Parcul Titan",
-                                           "Campus Regie",
-                                           "Parcul Herastrau",
-                                           "Gradina Botanica",
-                                           "Parcul Kiseleff"
+                                            "Parcul Cismigiu",
+                                            "Calea Victoriei1",
+                                            "Calea Victoriei2",
+                                            "Parcul Bazilescu",
+                                            "Parcul Titan",
+                                            "Campus Regie",
+                                            "Parcul Herastrau",
+                                            "Gradina Botanica",
+                                            "Parcul Kiseleff"
     };
     std::vector<Rastel*> bdRastele;
-    BicicletaStandard bicicletaInchiriata;
+    BicicletaStandard* bicicletaInchiriata;
+    bool bicicletaImprumutata;
 public:
-    TwoWheelsRentalSystem(BicicletaStandard bicicletaInchiriata);
+    TwoWheelsRentalSystem(BicicletaStandard* bicicletaInchiriata);
     ~TwoWheelsRentalSystem();
 
 
@@ -41,6 +44,8 @@ public:
 
 
     bool areBicicletaImprumutata();
+
+    void afiseazaBicicletaCurenta();
 };
 
 

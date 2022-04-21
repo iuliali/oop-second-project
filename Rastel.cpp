@@ -27,7 +27,6 @@ Rastel::Rastel(std::string locatie) {
             this->rastel.push_back(p);
 
             //std::cout << *dynamic_cast<VehiculDouaRoti*>(p);
-            p->setRastelCurent(this);
             this->locuriLibere -= 1;
         }
         else if (std::experimental::randint(1,100) % 3 == 0) {
@@ -37,7 +36,6 @@ Rastel::Rastel(std::string locatie) {
             this->rastel.push_back(p);
 
             //std::cout << *dynamic_cast<VehiculDouaRoti*>(p);
-            p->setRastelCurent(this);
             this->locuriLibere -= 1;
         }
         else {
@@ -90,10 +88,15 @@ void Rastel::scoateBicicleta(int pozitie) {
     //std::cout<< pozitie<<"\n";
     this->rastel[pozitie] = nullptr;
 }
-void Rastel::adaugaBicicleta(BicicletaStandard& pBicicleta) {
+
+void Rastel::adaugaBicicleta(BicicletaStandard* pBicicleta) {
     for (int i = 0; i < this->rastel.size(); i++) {
+        //std::cout << typeid(rastel[i]).name();
         if (rastel[i] == nullptr) {
-            rastel[i] = &pBicicleta;
+            rastel[i] = pBicicleta;
+            std::cout << "AM ADAUGAT BICICLETA ASTA : ";
+            pBicicleta->afisare();
+            std::cout <<"\n";
         }
         break;
     }
@@ -114,6 +117,8 @@ void Rastel::afisareBiciclete() {
 
 
 }
+
+
 
 
 

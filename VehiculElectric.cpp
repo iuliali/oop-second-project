@@ -30,3 +30,8 @@ void VehiculElectric::setNivelBaterie(int nivel) {
 double VehiculElectric::getCostSuplimentarPeMinut() {
     return costSuplimentarPeMinut;
 }
+
+VehiculElectric::VehiculElectric (VehiculElectric &eVehicul) : VehiculDouaRoti(eVehicul.getIdVehicul(), eVehicul.getModelVehicul()) {
+    this->nivelBaterie = eVehicul.getNivelBaterie();
+}
+

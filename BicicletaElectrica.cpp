@@ -10,14 +10,17 @@ BicicletaElectrica::BicicletaElectrica(int idV):VehiculDouaRoti(idV), VehiculEle
 
 }
 
-BicicletaElectrica::~BicicletaElectrica() {
-    //std::cout<<"Destructor Bicielectrica "<<this->getModelVehicul()<<"\n";
 
-}
 
 void BicicletaElectrica::afisare() {
     std::cout <<"Bicicleta Electrica "<< this->getModelVehicul() << " - ID:" << this->getIdVehicul()<<" Nivel Baterie: ";
     std::cout<<this->getNivelBaterie()<<"%";
+}
+
+BicicletaElectrica::BicicletaElectrica(BicicletaElectrica &bike) : VehiculDouaRoti(bike.getIdVehicul(),bike.getModelVehicul()),
+                                                                   BicicletaStandard(bike),
+                                                                   VehiculElectric(bike) {
+
 }
 
 

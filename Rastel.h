@@ -28,11 +28,13 @@ public:
 
     BicicletaStandard & getBicicleta(int k);
 
-    void adaugaBicicleta(BicicletaStandard *pBicicleta);
+
 
     void afisareBiciclete();
 
-    void adaugaBicicleta(BicicletaStandard &pBicicleta);
+
+
+    void adaugaBicicleta(BicicletaStandard *pBicicleta);
 };
 
 

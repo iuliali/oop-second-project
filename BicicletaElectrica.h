@@ -9,7 +9,7 @@ class BicicletaElectrica: public BicicletaStandard, public VehiculElectric {
 public:
     BicicletaElectrica(int idV, std::string model, int nivelB = 100);
     BicicletaElectrica(int idV);
-    ~BicicletaElectrica();
+    BicicletaElectrica(BicicletaElectrica& bike);
     void afisare();
 
     //int getNivelBaterie();
