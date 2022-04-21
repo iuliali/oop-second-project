@@ -58,7 +58,6 @@ The program is in Romanian ! (sorry)
 </ul>
 <p> </p>
 
-# **What I've learnt**
 
 # **Written in**
 ```
