@@ -89,20 +89,26 @@ void Rastel::scoateBicicleta(int pozitie) {
     this->rastel[pozitie] = nullptr;
 }
 
-void Rastel::adaugaBicicleta(BicicletaStandard* pBicicleta) {
+void Rastel::adaugaBicicleta(VehiculDouaRoti* pBicicleta) {
+    //std::cout << "TB SA ADAUG ASTA";
+    //pBicicleta->afisare();
+    //std::cout <<"\n";
+    //std::cout<<rastel.size();
     for (int i = 0; i < this->rastel.size(); i++) {
         //std::cout << typeid(rastel[i]).name();
         if (rastel[i] == nullptr) {
             rastel[i] = pBicicleta;
-            std::cout << "AM ADAUGAT BICICLETA ASTA : ";
-            pBicicleta->afisare();
+            //std::cout << "AM ADAUGAT BICICLETA ASTA : ";
+            //pBicicleta->afisare();
             std::cout <<"\n";
+            this->locuriLibere --;
+            break;
         }
-        break;
+
     }
 }
-BicicletaStandard& Rastel::getBicicleta(int k) {
-    return dynamic_cast<BicicletaStandard&>(*this->rastel[k]);
+VehiculDouaRoti* Rastel::getBicicleta(int k) {
+    return this->rastel[k]; ///upcast
 }
 
 void Rastel::afisareBiciclete() {
@@ -117,6 +123,17 @@ void Rastel::afisareBiciclete() {
 
 
 }
+
+void Rastel::incarcaBiciclete() {
+    for(int p =0 ; p < this->rastel.size(); p++) {
+        if (rastel[p] != nullptr) {
+            (*rastel[p]).incarca();
+        }
+    }
+    std::cout << "RASTEL INCARCAT - ";
+    this->afisareBiciclete();
+    std::cout << "\n";
+    }
 
 
 

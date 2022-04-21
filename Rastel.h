@@ -26,7 +26,7 @@ public:
 
     void scoateBicicleta(int pozitie);
 
-    BicicletaStandard & getBicicleta(int k);
+    VehiculDouaRoti* getBicicleta(int k);
 
 
 
@@ -34,7 +34,9 @@ public:
 
 
 
-    void adaugaBicicleta(BicicletaStandard *pBicicleta);
+    void adaugaBicicleta(VehiculDouaRoti *pBicicleta);
+
+    void incarcaBiciclete();
 };
 
 
