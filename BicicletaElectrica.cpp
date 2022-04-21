@@ -27,6 +27,11 @@ void BicicletaElectrica::incarca() {
     VehiculElectric::incarca();
 }
 
+BicicletaElectrica& BicicletaElectrica::operator=(BicicletaElectrica bike) {
+    this->BicicletaStandard::operator=(bike);
+    this->setNivelBaterie(bike.getNivelBaterie());
+}
+
 //std::istream &operator>>(std::istream &i, BicicletaElectrica &bike) {
 
 //    std::cout<<"Introduceti modelul de bicicleta electrica: ";

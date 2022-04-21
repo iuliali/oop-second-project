@@ -135,7 +135,28 @@ void Rastel::incarcaBiciclete() {
     std::cout << "\n";
     }
 
+    ///copy constructor
+Rastel::Rastel(Rastel& rastel0) {
+    this->locuriLibere = Rastel::locuriRastel;
+    this->locatieRastel = rastel0.getLocatie();
+    std::vector<VehiculDouaRoti*>::iterator it;
+    for (it = rastel0.rastel.begin(); it!= rastel0.rastel.end(); it++) {
+        if(*it != nullptr) {
+            if (dynamic_cast<BicicletaElectrica *>(*it) != nullptr) {
+                VehiculDouaRoti *newB = new BicicletaElectrica(*dynamic_cast<BicicletaElectrica *>(*it));
+                this->rastel.push_back(newB);
+            } else if (dynamic_cast<BicicletaStandard *>(*it) != nullptr) {
+                VehiculDouaRoti *newB = new BicicletaStandard(*dynamic_cast<BicicletaStandard *>(*it));
+                this->rastel.push_back(newB);
+            }
 
+        }
+        else{
+            this->rastel.push_back(nullptr);
+        }
+    }
+    this->locuriLibere = rastel0.getLocuriLibere();
+}
 
 
 

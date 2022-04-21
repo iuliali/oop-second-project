@@ -17,7 +17,7 @@ std::vector <std::string > BicicletaStandard::listaModele = {"DHS Citadinne",
 
 
 BicicletaStandard::BicicletaStandard(int idV, std::string model): VehiculDouaRoti(idV, model) {
-    std::cout<< "Constructor BiciSTD \n";
+    //std::cout<< "Constructor BiciSTD \n";
 }
 
 BicicletaStandard::BicicletaStandard(int idV): VehiculDouaRoti(idV) {
@@ -66,5 +66,10 @@ void BicicletaStandard::incarca() {
     //nothing
 }
 
+BicicletaStandard &BicicletaStandard::operator=(BicicletaStandard bike) {
+    this->setID(bike.getIdVehicul());
+    this->setModelVehicul(bike.getModelVehicul());
+    return *this;
+}
 
 

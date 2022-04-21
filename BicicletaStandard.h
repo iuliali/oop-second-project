@@ -19,6 +19,7 @@ public:
     void setID(int i);
 
     BicicletaStandard( BicicletaStandard &bike);
+    BicicletaStandard& operator=(BicicletaStandard bike);
 
 };
 

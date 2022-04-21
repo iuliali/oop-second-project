@@ -13,6 +13,7 @@ public:
     void afisare();
     //friend std::istream &operator>>(std::istream &i, BicicletaElectrica &bike) ;
     void incarca();
+    BicicletaElectrica& operator=(BicicletaElectrica bike);
 
         //int getNivelBaterie();
 };

@@ -7,6 +7,8 @@
 #include <memory>
 class TwoWheelsRentalSystem;
 class Rastel {
+
+
     static int locuriRastel;
     int locuriLibere;
     std::string locatieRastel;
@@ -17,6 +19,8 @@ class Rastel {
 public:
     Rastel(std::string locatie);
     ~Rastel();
+    Rastel(Rastel &rastel);
+
     std::string getLocatie();
     int getLocuriLibere() const;
     friend std::ostream& operator<<(std::ostream& o,  Rastel rastel);
