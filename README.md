@@ -69,7 +69,7 @@ Try this path:
 </ul>
 </li>
 </ul>
-<p>I've build the whole project learning and practicing to work with pointers. 
+<p>I've build the whole project learning and practicing work with pointers. 
 Rastel class has a vector with pointers of type VehiculDouaRoti, containing pointers to objects of types derived from VehiculDouaRoti (upcasting).
 I've build custom constructors for derived classes and for destructor I've build a virtual destructor for the base class.
 I've used static data members for prices in vehicle classes and also for building the Menu, which I've tried to build as a singleton. 
