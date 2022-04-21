@@ -5,7 +5,6 @@
 #include "VehiculDouaRoti.h"
 #include "Rastel.h"
 #include <memory>
-#include "Cont.h"
 
 
 class TwoWheelsRentalSystem {

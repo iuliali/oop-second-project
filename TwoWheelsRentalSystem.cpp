@@ -1,14 +1,7 @@
 #include "TwoWheelsRentalSystem.h"
 #include "Rastel.h"
-#include "CardStandard.h"
-#include "CardPremium.h"
-#include <cstdlib>
 #include <vector>
-#ifdef _WIN32
-#define CLEAR "cls"
-#else
-#define CLEAR "clear"
-#endif
+
 
 
 TwoWheelsRentalSystem::TwoWheelsRentalSystem(BicicletaStandard* bicicletaInchiriata)
