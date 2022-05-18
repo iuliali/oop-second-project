@@ -5,9 +5,10 @@
 #include "VehiculDouaRoti.h"
 #include "Rastel.h"
 #include <memory>
+#include "Repository.h"
 
 
-class TwoWheelsRentalSystem {
+class TwoWheelsRentalSystem: public Repository<Rastel> {
 
 
     std::vector<std::string> listaLocatii= {"Parcul Tineretului",
@@ -21,7 +22,7 @@ class TwoWheelsRentalSystem {
                                             "Gradina Botanica",
                                             "Parcul Kiseleff"
     };
-    std::vector<Rastel*> bdRastele;
+    //std::vector<Rastel*> bdRastele;
     VehiculDouaRoti* bicicletaInchiriata;
     bool bicicletaImprumutata;
 public:
@@ -38,7 +39,7 @@ public:
 
     void returneazaBicicleta(int i);
 
-    Rastel* getRastel(int i);
+    //Rastel* getRastel(int i);
 
     bool areBicicletaImprumutata();
 

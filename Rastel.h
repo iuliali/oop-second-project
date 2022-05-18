@@ -5,14 +5,15 @@
 #include "BicicletaElectrica.h"
 #include <vector>
 #include <memory>
+#include "Repository.h"
 class TwoWheelsRentalSystem;
-class Rastel {
+class Rastel: public Repository<VehiculDouaRoti> {
 
 
     static int locuriRastel;
     int locuriLibere;
     std::string locatieRastel;
-    std::vector<VehiculDouaRoti*> rastel;
+    //std::vector<VehiculDouaRoti*> rastel;
     void generareVehiculeRastel();
 
 
@@ -28,9 +29,9 @@ public:
 
     void setLocuriLibere(int locuriLibere);
 
-    void scoateBicicleta(int pozitie);
+    //void scoateBicicleta(int pozitie);
 
-    VehiculDouaRoti* getBicicleta(int k);
+    //VehiculDouaRoti* getBicicleta(int k);
 
 
 

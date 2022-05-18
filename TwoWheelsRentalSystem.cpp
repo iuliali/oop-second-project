@@ -11,7 +11,7 @@ TwoWheelsRentalSystem::TwoWheelsRentalSystem(BicicletaStandard* bicicletaInchiri
     for(int i = 0; i < TwoWheelsRentalSystem::listaLocatii.size(); i++) {
         //std::cout<<i+1<<" ";
         Rastel* pRastelNou(new Rastel(TwoWheelsRentalSystem::listaLocatii[i]));
-        bdRastele.push_back(pRastelNou);
+        this->adauga(pRastelNou);
         //std::cout << *pRastelNou;
 
     }
@@ -20,8 +20,8 @@ TwoWheelsRentalSystem::TwoWheelsRentalSystem(BicicletaStandard* bicicletaInchiri
 }
 
 std::ostream &operator<<(std::ostream &o,  TwoWheelsRentalSystem sistem) {
-    for(int i = 0; i < sistem.bdRastele.size(); i++) {
-        std::cout << *sistem.bdRastele[i];
+    for(int i = 0; i < sistem.mEntities.size(); i++) {
+        std::cout << *sistem.getEntity(i);
     }
     return o;
 }
@@ -34,10 +34,10 @@ std::ostream &operator<<(std::ostream &o,  TwoWheelsRentalSystem sistem) {
 
 TwoWheelsRentalSystem::~TwoWheelsRentalSystem() {
 
-    for (int i = 0 ; i < bdRastele.size(); i ++) {
-        delete bdRastele[i];
+    for (int i = 0 ; i < mEntities.size(); i ++) {
+        delete mEntities[i];
     }
-    bdRastele.clear();
+    mEntities.clear();
     //std::cout << "Destructor sistem \n";
 }
 
@@ -48,19 +48,19 @@ void TwoWheelsRentalSystem::afisareLocatii() {
     }
 }
 
-Rastel* TwoWheelsRentalSystem::getRastel(int i) {
-    return this->bdRastele[i];
-}
+//Rastel* TwoWheelsRentalSystem::getRastel(int i) {
+//    return this->mEntities[i];
+//}
 void TwoWheelsRentalSystem::afisareRastel(int k) {
     //std::cout << *bdRastele[k-1];
-    bdRastele[k]->afisareBiciclete();
+    mEntities[k]->afisareBiciclete();
 }
 
 void TwoWheelsRentalSystem::imprumutaBicicleta(Rastel* prastel, int i) {
     prastel->setLocuriLibere(prastel->getLocuriLibere()+1);
-    this->bicicletaInchiriata = dynamic_cast<BicicletaStandard *>(prastel->getBicicleta(i));
+    this->bicicletaInchiriata = dynamic_cast<BicicletaStandard *>(prastel->getEntity(i));
     //std::cout << *this->bicicletaInchiriata;
-    prastel->scoateBicicleta(i);
+    prastel->sterge(i);
     bicicletaImprumutata = true;
     //prastel.afisareBiciclete();
     //this->bicicletaInchiriata.afisare();
@@ -68,26 +68,26 @@ void TwoWheelsRentalSystem::imprumutaBicicleta(Rastel* prastel, int i) {
 }
 
 void TwoWheelsRentalSystem::afisareLocuriLibere() {
-    for (int i = 0 ; i < bdRastele.size(); i ++) {
-        std::cout << i+1<< ". In Rastelul din "<<bdRastele[i]->getLocatie()<<" sunt "<< bdRastele[i]->getLocuriLibere()<<" locuri libere\n";
+    for (int i = 0 ; i < mEntities.size(); i ++) {
+        std::cout << i+1<< ". In Rastelul din "<<mEntities[i]->getLocatie()<<" sunt "<< mEntities[i]->getLocuriLibere()<<" locuri libere\n";
     }
 }
 
 void TwoWheelsRentalSystem::returneazaBicicleta(int i) {
-    if(this->bdRastele[i]->getLocuriLibere() == 0){
+    if(this->mEntities[i]->getLocuriLibere() == 0){
         std::cout<<"Nu sunt locuri libere\n";
     } else {
         std::cout << "\n";
-        this->bdRastele[i]->afisareBiciclete();
+        this->mEntities[i]->afisareBiciclete();
         std::cout << "\n";
-        this->bdRastele[i]->adaugaBicicleta(this->bicicletaInchiriata);
+        this->mEntities[i]->adaugaBicicleta(this->bicicletaInchiriata);
         std::cout << "\n";
-        this->bdRastele[i]->afisareBiciclete();
+        this->mEntities[i]->afisareBiciclete();
         std::cout << "\n";
         //this->afisareRastel(i);
         std::cout << "Ai returnat cu succes bicicleta ";
         bicicletaInchiriata->afisare();
-        std::cout << " in rastelul din " << bdRastele[i]->getLocatie() << "\n";
+        std::cout << " in rastelul din " << mEntities[i]->getLocatie() << "\n";
         this->bicicletaInchiriata = new BicicletaStandard(0);
         bicicletaImprumutata = false;
     }
@@ -106,7 +106,7 @@ void TwoWheelsRentalSystem::afiseazaBicicletaCurenta() {
 
 void TwoWheelsRentalSystem::incarcaBicicleteRastel(int i) {
     //std::cout << *bdRastele[i];
-    this->getRastel(i)->incarcaBiciclete();
+    this->getEntity(i)->incarcaBiciclete();
 
 }
 

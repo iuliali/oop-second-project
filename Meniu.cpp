@@ -101,15 +101,15 @@ void Meniu::inchiriere() {
     std::cout<<"Alegeti bicicleta dorita\n";
     int rasp2;
     std::cin >>rasp2;
-    if(sistem->getRastel(rasp-1)->getBicicleta(rasp2-1) == nullptr) {
+    if(sistem->getEntity(rasp-1)->getEntity(rasp2-1) == nullptr) {
         throw std::bad_cast();
     }
 
-    sistem->getRastel(rasp-1)->getBicicleta(rasp2-1)->afisare();
+    sistem->getEntity(rasp-1)->getEntity(rasp2-1)->afisare();
     std::cout<<"\n";
-    sistem->imprumutaBicicleta(sistem->getRastel(rasp-1),rasp2-1);
+    sistem->imprumutaBicicleta(sistem->getEntity(rasp-1),rasp2-1);
     std::cout<<"Biciclete ramase in rastelul :";
-    sistem->getRastel(rasp-1)->afisareBiciclete();
+    sistem->getEntity(rasp-1)->afisareBiciclete();
 
 }
 
@@ -183,11 +183,11 @@ void Meniu::tarifeBiciclete() {
 }
 
 void Meniu::adaugareBiciclete(int i) {
-    std::cout<<"Poti adauga "<<sistem->getRastel(i)->getLocuriLibere()<<" biciclete in acest rastel\n";
+    std::cout<<"Poti adauga "<<sistem->getEntity(i)->getLocuriLibere()<<" biciclete in acest rastel\n";
     std::cout << "Cate biciclete vrei sa adaugi? ";
     int nr;
     std::cin >> nr;
-    if(nr > sistem->getRastel(i)->getLocuriLibere() || nr < 1){
+    if(nr > sistem->getEntity(i)->getLocuriLibere() || nr < 1){
         throw -1;
     }
     else {
@@ -199,21 +199,21 @@ void Meniu::adaugareBiciclete(int i) {
                 BicicletaStandard* bike = new BicicletaStandard(-1);
                 //std::cout << *bike;
                 std::cin >> *bike;
-                sistem->getRastel(i)->adaugaBicicleta(bike);
+                sistem->getEntity(i)->adaugaBicicleta(bike);
 
 
             } else {
                 BicicletaElectrica* bike = new BicicletaElectrica(-1);
                 //std::cout << *bike;
                 std::cin >> *bike;
-                sistem->getRastel(i)->adaugaBicicleta(bike);
+                sistem->getEntity(i)->adaugaBicicleta(bike);
 
             }
 
             nr--;
         }
         std::cout << "Am adaugat cu succes biciclte in rastelul din ";
-        sistem->getRastel(i)->afisareBiciclete();
+        sistem->getEntity(i)->afisareBiciclete();
         std::cout << "\n";
     }
 

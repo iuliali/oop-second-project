@@ -20,6 +20,8 @@ add_executable(twoWheelsRenalSystem
         Meniu.cpp Meniu.h
         TwoWheelsRentalSystem.cpp
         TwoWheelsRentalSystem.h
+        Repository.cpp
+        Repository.h
         )
 
 
