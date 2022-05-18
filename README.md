@@ -4,6 +4,16 @@
     <img src="https://c.tenor.com/C5TeczshWB0AAAAC/maria-tran-bike.gif" width="200" height="200" />
 </p>
 
+#UPDATE FOR THIRD OOP PROJECT 
+<i>
+  <ul>
+I've done several updates for the third project:
+    <li>added Repository class, which is also a template class - to illustrate REPOSITORY PATTERN</li>
+    <li>Rastel and TwoWheelsSystem classes inherit from this Repository class </li>
+  </ul>
+</i>
+
+
 # **Short presentation**
 <i>
 In order to learn and practice both basic and more advanced features of OOP, I created this simple project, which illustrates concepts of: <br>
@@ -12,8 +22,9 @@ In order to learn and practice both basic and more advanced features of OOP, I c
     <li>abstraction </li>
     <li>inheritance </li>
     <li>singleton pattern with static data members and functions </li>
+    <li>repository pattern</li>
+    <li>template class</li>
     <li>exception catching </li>
-
   </ul>
 The program is in Romanian ! (sorry)
 </i>
