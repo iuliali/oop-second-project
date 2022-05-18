@@ -8,7 +8,7 @@
 <i>
   <ul>
 I've done several updates for the third project:
-    <li>added Repository class, which is also a template class - to illustrate REPOSITORY PATTERN</li>
+    <li>added Repository class, which is also a template class - to illustrate REPOSITORY DESIGN PATTERN</li>
     <li>Rastel and TwoWheelsSystem classes inherit from this Repository class </li>
   </ul>
 </i>
